@@ -5,15 +5,6 @@ Built with a modern **MERN + Next.js** stack and a focus on scalability and real
 
 ---
 
-## 🖼️ Project Preview
-
-![Screenshot 1](https://github.com/Ayush2049/JOBPORTAL-WITH-AI-RESUME-MATCHING/blob/fbd90a87c1a3bbeb51221511782c8c6ed9145ac2/project-instances/Screenshot%202025-10-19%20003813.png)
-![Screenshot 2](https://github.com/Ayush2049/JOBPORTAL-WITH-AI-RESUME-MATCHING/blob/fbd90a87c1a3bbeb51221511782c8c6ed9145ac2/project-instances/Screenshot%202025-10-19%20003905.png)
-![Screenshot 3](https://github.com/Ayush2049/JOBPORTAL-WITH-AI-RESUME-MATCHING/blob/fbd90a87c1a3bbeb51221511782c8c6ed9145ac2/project-instances/Screenshot%202025-10-19%20003916.png)
-![Screenshot 4](https://github.com/Ayush2049/JOBPORTAL-WITH-AI-RESUME-MATCHING/blob/fbd90a87c1a3bbeb51221511782c8c6ed9145ac2/project-instances/Screenshot%202025-10-19%20004925.png)
-
----
-
 ## 🚀 Tech Stack
 
 ### **Job Portal (Full Stack)**
@@ -29,16 +20,6 @@ Built with a modern **MERN + Next.js** stack and a focus on scalability and real
 - **Utilities:** PDF.js for client-side parsing, Custom text & section extraction logic  
 
 ---
-
-## 💡 Core Concepts
-- **Authentication:** Secure JWT-based login & route protection  
-- **File Uploads:** Resume/CV upload using Multer  
-- **Real-Time Chat:** Socket.io integration for candidate–employer communication  
-- **Resume Parsing:** PDF text extraction and structured field parsing  
-- **Database Modeling:** Mongoose schemas for Users, Jobs, Applications, Messages, and Resumes  
-
----
-
 ## ⚙️ Features
 
 ### 👤 User / Company
@@ -54,6 +35,26 @@ Built with a modern **MERN + Next.js** stack and a focus on scalability and real
 - Upload PDF resume  
 - View parsed text and structured data (education, skills, experience)  
 - Save extracted results  
+
+
+---
+
+
+## 🖼️ Project Preview
+
+![Screenshot 1](https://github.com/Ayush2049/JOBPORTAL-WITH-AI-RESUME-MATCHING/blob/fbd90a87c1a3bbeb51221511782c8c6ed9145ac2/project-instances/Screenshot%202025-10-19%20003813.png)
+![Screenshot 2](https://github.com/Ayush2049/JOBPORTAL-WITH-AI-RESUME-MATCHING/blob/fbd90a87c1a3bbeb51221511782c8c6ed9145ac2/project-instances/Screenshot%202025-10-19%20003905.png)
+![Screenshot 3](https://github.com/Ayush2049/JOBPORTAL-WITH-AI-RESUME-MATCHING/blob/fbd90a87c1a3bbeb51221511782c8c6ed9145ac2/project-instances/Screenshot%202025-10-19%20003916.png)
+![Screenshot 4](https://github.com/Ayush2049/JOBPORTAL-WITH-AI-RESUME-MATCHING/blob/fbd90a87c1a3bbeb51221511782c8c6ed9145ac2/project-instances/Screenshot%202025-10-19%20004925.png)
+
+---
+
+## 💡 Core Concepts
+- **Authentication:** Secure JWT-based login & route protection  
+- **File Uploads:** Resume/CV upload using Multer  
+- **Real-Time Chat:** Socket.io integration for candidate–employer communication  
+- **Resume Parsing:** PDF text extraction and structured field parsing  
+- **Database Modeling:** Mongoose schemas for Users, Jobs, Applications, Messages, and Resumes  
 
 ---
 
