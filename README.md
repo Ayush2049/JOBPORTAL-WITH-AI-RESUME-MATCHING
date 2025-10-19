@@ -5,7 +5,14 @@ Built with a modern **MERN + Next.js** stack and a focus on scalability and real
 
 ---
 
-## 🚀 Project Instances
+## 🖼️ Project Preview
+
+![Screenshot 1](https://github.com/Ayush2049/JOBPORTAL-WITH-AI-RESUME-MATCHING/blob/fbd90a87c1a3bbeb51221511782c8c6ed9145ac2/project-instances/Screenshot%202025-10-19%20003813.png)
+![Screenshot 2](https://github.com/Ayush2049/JOBPORTAL-WITH-AI-RESUME-MATCHING/blob/fbd90a87c1a3bbeb51221511782c8c6ed9145ac2/project-instances/Screenshot%202025-10-19%20003905.png)
+![Screenshot 3](https://github.com/Ayush2049/JOBPORTAL-WITH-AI-RESUME-MATCHING/blob/fbd90a87c1a3bbeb51221511782c8c6ed9145ac2/project-instances/Screenshot%202025-10-19%20003916.png)
+![Screenshot 4](https://github.com/Ayush2049/JOBPORTAL-WITH-AI-RESUME-MATCHING/blob/fbd90a87c1a3bbeb51221511782c8c6ed9145ac2/project-instances/Screenshot%202025-10-19%20004925.png)
+
+---
 
 ## 🚀 Tech Stack
 
