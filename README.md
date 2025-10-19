@@ -1,62 +1,54 @@
-# 🧩 React Job Portal + Resume Parser
+# 💼 Job Portal with AI Resume Matching
 
-A **full-stack Job Portal** combined with a **Resume Parser** app — helping users find, apply, and manage jobs while also analyzing and uploading resumes.  
-Built with a modern **MERN + Next.js** stack and a focus on scalability and real-time interaction.
-
----
-
-## 🚀 Tech Stack
-
-### **Job Portal (Full Stack)**
-- **Frontend:** React (Vite), CSS, Axios  
-- **Backend:** Node.js, Express.js, MongoDB (via Mongoose)  
-- **Auth & Uploads:** JWT, Multer, Dotenv  
-- **Real-Time Chat:** Socket.IO  
-- **Architecture:** MVC + REST APIs  
-
-### **Resume Parser App**
-- **Framework:** Next.js (App Router) + TypeScript  
-- **Styling:** Tailwind CSS  
-- **Utilities:** PDF.js for client-side parsing, Custom text & section extraction logic  
-
----
-## ⚙️ Features
-
-### 👤 User / Company
-- Register & Login  
-- Post or Apply for Jobs  
-- Upload and manage resumes  
-- View Applications and Job Matches  
-
-### 💬 Chat System
-- Real-time messaging between users and companies  
-
-### 📄 Resume Parser
-- Upload PDF resume  
-- View parsed text and structured data (education, skills, experience)  
-- Save extracted results  
-
+A full-stack **Job Portal Application** built with **MERN Stack**, integrating **AI-powered Resume Matching** to recommend jobs based on users' skills extracted from their uploaded resumes.
 
 ---
 
+## 🚀 Features
 
-## 🖼️ Project Preview
+- 🔐 **User & Company Authentication** (Signup/Login)
+- 🧾 **User Dashboard** to browse and apply for jobs
+- 🏢 **Company Dashboard** to post jobs and view applicants
+- 🧠 **AI Resume Matching System**
+  - Automatically analyzes uploaded resumes using NLP.
+  - Extracts skills and experience.
+  - Recommends the best-suited jobs for the candidate.
+- 📄 **Job Application Tracking** for users
+- 🧍 **Applicant Management** for companies
+- ⚡ **MongoDB Integration** for efficient data storage
+- 🧑‍💻 **Modern UI with Responsive Design**
+- 💬 **Real-time updates** for applications and postings
 
+---
+
+## 🖼️ Project Screenshots
+
+### 🏠 Home / User Interface
 ![Screenshot 1](https://github.com/Ayush2049/JOBPORTAL-WITH-AI-RESUME-MATCHING/blob/fbd90a87c1a3bbeb51221511782c8c6ed9145ac2/project-instances/Screenshot%202025-10-19%20003813.png)
+
+### 💼 Resume Parser
 ![Screenshot 2](https://github.com/Ayush2049/JOBPORTAL-WITH-AI-RESUME-MATCHING/blob/fbd90a87c1a3bbeb51221511782c8c6ed9145ac2/project-instances/Screenshot%202025-10-19%20003905.png)
+
+### 🧠 AI Resume Matching in Action
 ![Screenshot 3](https://github.com/Ayush2049/JOBPORTAL-WITH-AI-RESUME-MATCHING/blob/fbd90a87c1a3bbeb51221511782c8c6ed9145ac2/project-instances/Screenshot%202025-10-19%20003916.png)
+
+### 🏢 Applicants Dashboard
 ![Screenshot 4](https://github.com/Ayush2049/JOBPORTAL-WITH-AI-RESUME-MATCHING/blob/fbd90a87c1a3bbeb51221511782c8c6ed9145ac2/project-instances/Screenshot%202025-10-19%20004925.png)
 
 ---
 
-## 💡 Core Concepts
-- **Authentication:** Secure JWT-based login & route protection  
-- **File Uploads:** Resume/CV upload using Multer  
-- **Real-Time Chat:** Socket.io integration for candidate–employer communication  
-- **Resume Parsing:** PDF text extraction and structured field parsing  
-- **Database Modeling:** Mongoose schemas for Users, Jobs, Applications, Messages, and Resumes  
+## 🧩 Tech Stack
+
+- **Frontend:** React.js  
+- **Backend:** Node.js, Express.js  
+- **Database:** MongoDB  
+- **AI Resume Matching:** Python (spaCy / scikit-learn / NLP models)  
+- **Authentication:** JWT (JSON Web Tokens)
 
 ---
 
-## 🗂️ Project Structure
+## 🛠️ Setup Instructions
 
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/Ayush2049/JOBPORTAL-WITH-AI-RESUME-MATCHING.git
