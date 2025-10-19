@@ -53,3 +53,15 @@ A full-stack **Job Portal Application** built with **MERN Stack**, integrating *
 1. **Clone the Repository**
    ```bash
    git clone https://github.com/Ayush2049/JOBPORTAL-WITH-AI-RESUME-MATCHING.git
+
+## 📬 Contact Me
+
+I'm always open to connecting, collaborating, or answering questions about my projects.  
+
+- **Name:** Ayush  
+- **Email:** [dm.ayushsharma@gmail.com](mailto:dm.ayushsharma@gmail.com)  
+- **GitHub:** [Ayush2049](https://github.com/Ayush2049)  
+- **LinkedIn:** [linkedin.com/in/ayush](https://in.linkedin.com/in/ayush-sharma-8805842ba)  
+
+Feel free to reach out via email or connect on GitHub/LinkedIn!
+
