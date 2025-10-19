@@ -18,6 +18,7 @@ A full-stack **Job Portal Application** built with **MERN Stack**, integrating *
 - ⚡ **MongoDB Integration** for efficient data storage
 - 🧑‍💻 **Modern UI with Responsive Design**
 - 💬 **Real-time updates** for applications and postings
+-  💬 **Real-time chats** to maintain communication between employers and applicants to resolve queries
 
 ---
 
