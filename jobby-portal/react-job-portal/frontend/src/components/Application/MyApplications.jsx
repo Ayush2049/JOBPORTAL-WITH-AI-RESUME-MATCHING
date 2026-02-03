@@ -32,9 +32,9 @@ const MyApplications = () => {
     try {
       let endpoint;
       if (user.role === "Employer") {
-        endpoint = "http://localhost:5000/api/v1/application/employer/getall";
+        endpoint = `${import.meta.env.VITE_BACKEND_URL}/api/v1/application/employer/getall`;
       } else {
-        endpoint = "http://localhost:5000/api/v1/application/jobseeker/getall";
+        endpoint = `${import.meta.env.VITE_BACKEND_URL}/api/v1/application/jobseeker/getall`;
       }
 
       const response = await axios.get(endpoint, {
@@ -123,20 +123,21 @@ const MyApplications = () => {
   const updateStatus = async (id, status) => {
     try {
       const response = await axios.put(
-        `http://localhost:5000/api/v1/application/${id}/status`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/v1/application/${id}/status`,
+
         { status },
         {
           withCredentials: true,
           headers: { "Content-Type": "application/json" },
-        }
+        },
       );
 
       toast.success(`Application status updated to ${status}`);
 
       setApplications((prevApplications) =>
         prevApplications.map((app) =>
-          app._id === id ? { ...app, status: status } : app
-        )
+          app._id === id ? { ...app, status: status } : app,
+        ),
       );
     } catch (error) {
       console.error("Error updating status:", error);
@@ -151,15 +152,16 @@ const MyApplications = () => {
   const deleteApplication = async (id) => {
     try {
       const response = await axios.delete(
-        `http://localhost:5000/api/v1/application/delete/${id}`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/v1/application/delete/${id}`,
+
         {
           withCredentials: true,
-        }
+        },
       );
 
       toast.success(response.data.message);
       setApplications((prevApplication) =>
-        prevApplication.filter((application) => application._id !== id)
+        prevApplication.filter((application) => application._id !== id),
       );
     } catch (error) {
       console.error("Error deleting application:", error);

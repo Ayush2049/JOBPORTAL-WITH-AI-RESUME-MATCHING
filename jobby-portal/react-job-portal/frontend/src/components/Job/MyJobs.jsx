@@ -17,8 +17,8 @@ const MyJobs = () => {
     const fetchJobs = async () => {
       try {
         const { data } = await axios.get(
-          "http://localhost:5000/api/v1/job/getmyjobs",
-          { withCredentials: true }
+          `${import.meta.env.VITE_BACKEND_URL}/api/v1/job/getmyjobs`,
+          { withCredentials: true },
         );
         setMyJobs(data.myJobs);
       } catch (error) {
@@ -47,9 +47,13 @@ const MyJobs = () => {
   const handleUpdateJob = async (jobId) => {
     const updatedJob = myJobs.find((job) => job._id === jobId);
     await axios
-      .put(`http://localhost:5000/api/v1/job/update/${jobId}`, updatedJob, {
-        withCredentials: true,
-      })
+      .put(
+        `${import.meta.env.VITE_BACKEND_URL}/api/v1/job/update/${jobId}`,
+        updatedJob,
+        {
+          withCredentials: true,
+        },
+      )
       .then((res) => {
         toast.success(res.data.message);
         setEditingMode(null);
@@ -62,9 +66,12 @@ const MyJobs = () => {
   //Function For Deleting Job
   const handleDeleteJob = async (jobId) => {
     await axios
-      .delete(`http://localhost:5000/api/v1/job/delete/${jobId}`, {
-        withCredentials: true,
-      })
+      .delete(
+        `${import.meta.env.VITE_BACKEND_URL}/api/v1/job/delete/${jobId}`,
+        {
+          withCredentials: true,
+        },
+      )
       .then((res) => {
         toast.success(res.data.message);
         setMyJobs((prevJobs) => prevJobs.filter((job) => job._id !== jobId));
@@ -78,8 +85,8 @@ const MyJobs = () => {
     // Update the job object in the jobs state with the new value
     setMyJobs((prevJobs) =>
       prevJobs.map((job) =>
-        job._id === jobId ? { ...job, [field]: value } : job
-      )
+        job._id === jobId ? { ...job, [field]: value } : job,
+      ),
     );
   };
 
@@ -107,7 +114,7 @@ const MyJobs = () => {
                               handleInputChange(
                                 element._id,
                                 "title",
-                                e.target.value
+                                e.target.value,
                               )
                             }
                           />
@@ -125,7 +132,7 @@ const MyJobs = () => {
                               handleInputChange(
                                 element._id,
                                 "country",
-                                e.target.value
+                                e.target.value,
                               )
                             }
                           />
@@ -142,7 +149,7 @@ const MyJobs = () => {
                               handleInputChange(
                                 element._id,
                                 "city",
-                                e.target.value
+                                e.target.value,
                               )
                             }
                           />
@@ -155,7 +162,7 @@ const MyJobs = () => {
                               handleInputChange(
                                 element._id,
                                 "category",
-                                e.target.value
+                                e.target.value,
                               )
                             }
                             disabled={
@@ -208,7 +215,7 @@ const MyJobs = () => {
                                   handleInputChange(
                                     element._id,
                                     "fixedSalary",
-                                    e.target.value
+                                    e.target.value,
                                   )
                                 }
                               />
@@ -224,7 +231,7 @@ const MyJobs = () => {
                                     handleInputChange(
                                       element._id,
                                       "salaryFrom",
-                                      e.target.value
+                                      e.target.value,
                                     )
                                   }
                                 />
@@ -238,7 +245,7 @@ const MyJobs = () => {
                                     handleInputChange(
                                       element._id,
                                       "salaryTo",
-                                      e.target.value
+                                      e.target.value,
                                     )
                                   }
                                 />
@@ -255,7 +262,7 @@ const MyJobs = () => {
                               handleInputChange(
                                 element._id,
                                 "expired",
-                                e.target.value
+                                e.target.value,
                               )
                             }
                             disabled={
@@ -280,7 +287,7 @@ const MyJobs = () => {
                               handleInputChange(
                                 element._id,
                                 "description",
-                                e.target.value
+                                e.target.value,
                               )
                             }
                           />
@@ -297,7 +304,7 @@ const MyJobs = () => {
                               handleInputChange(
                                 element._id,
                                 "location",
-                                e.target.value
+                                e.target.value,
                               )
                             }
                           />

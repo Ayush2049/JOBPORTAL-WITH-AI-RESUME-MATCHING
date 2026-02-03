@@ -27,14 +27,14 @@ const PostJob = () => {
     if (
       currentSkill.trim() &&
       !skillSection.some(
-        (skill) => skill.name.toLowerCase() === currentSkill.toLowerCase()
+        (skill) => skill.name.toLowerCase() === currentSkill.toLowerCase(),
       )
     ) {
       setSkillSection([...skillSection, { name: currentSkill.trim() }]);
       setCurrentSkill("");
     } else if (
       skillSection.some(
-        (skill) => skill.name.toLowerCase() === currentSkill.toLowerCase()
+        (skill) => skill.name.toLowerCase() === currentSkill.toLowerCase(),
       )
     ) {
       toast.error("Skill already added!");
@@ -74,7 +74,7 @@ const PostJob = () => {
 
     await axios
       .post(
-        "http://localhost:5000/api/v1/job/post",
+        `${import.meta.env.VITE_BACKEND_URL}/api/v1/job/post`,
         fixedSalary.length >= 4
           ? {
               title,
@@ -102,7 +102,7 @@ const PostJob = () => {
           headers: {
             "Content-Type": "application/json",
           },
-        }
+        },
       )
       .then((res) => {
         toast.success(res.data.message);

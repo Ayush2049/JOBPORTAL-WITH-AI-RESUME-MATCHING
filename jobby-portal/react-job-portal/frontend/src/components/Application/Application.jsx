@@ -72,14 +72,15 @@ const Application = () => {
 
     try {
       const { data } = await axios.post(
-        "http://localhost:5000/api/v1/application/post",
+        `${import.meta.env.VITE_BACKEND_URL}/api/v1/application/post`,
+
         formData,
         {
           withCredentials: true,
           headers: {
             "Content-Type": "multipart/form-data",
           },
-        }
+        },
       );
       setName("");
       setEmail("");
@@ -101,7 +102,7 @@ const Application = () => {
         errorMessage.includes("api_key")
       ) {
         toast.error(
-          "File upload service is currently unavailable. Please try again later."
+          "File upload service is currently unavailable. Please try again later.",
         );
       }
     } finally {

@@ -37,7 +37,7 @@ const MatchedJobs = () => {
       setLoading(true);
       // Update this URL to match your backend URL
       const response = await axios.get(
-        `http://localhost:5000/api/v1/job/matched-jobs?matchedSkills=${matchedSkills}&minMatchScore=${minScore}`
+        `${import.meta.env.VITE_BACKEND_URL}/api/v1/job/matched-jobs?matchedSkills=${matchedSkills}&minMatchScore=${minScore}`,
       );
       setJobs(response.data.jobs);
     } catch (error) {

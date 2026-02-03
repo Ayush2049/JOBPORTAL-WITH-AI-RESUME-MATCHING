@@ -40,7 +40,7 @@ const ChatSystem = ({
       console.log("Getting/Creating conversation with user:", otherUserId);
 
       const response = await axios.post(
-        `http://localhost:5000/api/chat/conversation`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/chat/conversation`,
         { receiverId: otherUserId },
         { withCredentials: true },
       );
@@ -67,7 +67,7 @@ const ChatSystem = ({
       console.log("Fetching messages for conversation:", convId);
 
       const response = await axios.get(
-        `http://localhost:5000/api/chat/messages/${convId}`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/chat/messages/${convId}`,
         {
           withCredentials: true,
         },
@@ -147,7 +147,7 @@ const ChatSystem = ({
       console.log("Sending message:", messageData);
 
       const response = await axios.post(
-        "http://localhost:5000/api/chat/message",
+        `${import.meta.env.VITE_BACKEND_URL}/api/chat/message`,
         messageData,
         {
           withCredentials: true,
@@ -189,7 +189,7 @@ const ChatSystem = ({
 
     try {
       await axios.post(
-        `http://localhost:5000/api/chat/conversations/${convId}/mark-read`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/chat/conversations/${convId}/mark-read`,
         {},
         { withCredentials: true },
       );

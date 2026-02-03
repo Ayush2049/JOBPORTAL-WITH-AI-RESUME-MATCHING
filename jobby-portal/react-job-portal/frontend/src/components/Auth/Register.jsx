@@ -22,14 +22,15 @@ const Register = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "http://localhost:5000/api/v1/user/register",
+       `${import.meta.env.VITE_BACKEND_URL}/api/v1/user/register`,
+
         { name, phone, email, role, password },
         {
           headers: {
             "Content-Type": "application/json",
           },
           withCredentials: true,
-        }
+        },
       );
       toast.success(data.message);
       setName("");

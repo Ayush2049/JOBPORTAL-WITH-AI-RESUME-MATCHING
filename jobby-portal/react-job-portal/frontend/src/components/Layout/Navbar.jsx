@@ -14,16 +14,16 @@ const Navbar = () => {
   const handleLogout = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:5000/api/v1/user/logout",
+        `${import.meta.env.VITE_BACKEND_URL}/api/v1/user/logout`,
         {
           withCredentials: true,
-        }
+        },
       );
       toast.success(response.data.message);
       setIsAuthorized(false);
       navigateTo("/login");
     } catch (error) {
-      toast.error(error.response.data.message), setIsAuthorized(true);
+      (toast.error(error.response.data.message), setIsAuthorized(true));
     }
   };
 
