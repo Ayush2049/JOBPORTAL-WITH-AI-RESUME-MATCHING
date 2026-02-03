@@ -11,6 +11,7 @@ const PORT = process.env.PORT || 5000;
 const allowedOrigins = [
   process.env.FRONTEND_URL,
   process.env.RESUME_PARSER_URL,
+  "http://localhost:5173", // 👈 allow local frontend
 ];
 
 cloudinary.v2.config({

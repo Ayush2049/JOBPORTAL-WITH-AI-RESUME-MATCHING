@@ -19,6 +19,7 @@ config();
 const allowedOrigins = [
   process.env.FRONTEND_URL,
   process.env.RESUME_PARSER_URL,
+  "http://localhost:5173", // 👈 allow local frontend
 ];
 
 app.use(
