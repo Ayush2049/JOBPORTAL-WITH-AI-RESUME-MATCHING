@@ -1,31 +1,56 @@
-import * as pdfjsLib from "pdfjs-dist/legacy/build/pdf";
+import * as pdfjs from "pdfjs-dist/legacy/build/pdf.mjs";
 
-// ✅ Use fake worker if no worker file exists
-import pdfjsWorker from "pdfjs-dist/build/pdf.worker.mjs?worker";
+/**
+ * Minimal shapes we actually use from PDF.js
+ * (we do NOT model the full library)
+ */
+type PdfTextItem = {
+  str?: string;
+  transform: number[];
+  width: number;
+  height: number;
+};
 
-pdfjsLib.GlobalWorkerOptions.workerPort = new Worker(
-  new URL("pdfjs-dist/build/pdf.worker.mjs", import.meta.url),
-  { type: "module" }
-);
+type PositionedTextItem = {
+  str: string;
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+};
 
-export const extractTextItems = async (file: File): Promise<any[]> => {
+/**
+ * ✅ CRITICAL FIX
+ * Use the legacy worker from the SAME build
+ * and let Next.js bundle it correctly.
+ */
+pdfjs.GlobalWorkerOptions.workerSrc = new URL(
+  "pdfjs-dist/legacy/build/pdf.worker.mjs",
+  import.meta.url,
+).toString();
+
+export const extractTextItems = async (
+  file: File,
+): Promise<PositionedTextItem[]> => {
   const arrayBuffer = await file.arrayBuffer();
-  const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
 
-  const textItems: any[] = [];
+  const pdf = await pdfjs.getDocument({ data: arrayBuffer }).promise;
+
+  const textItems: PositionedTextItem[] = [];
 
   for (let i = 1; i <= pdf.numPages; i++) {
     const page = await pdf.getPage(i);
     const viewport = page.getViewport({ scale: 1 });
     const textContent = await page.getTextContent();
 
-    const items = textContent.items.map((item: any) => {
-      const transform = pdfjsLib.Util.transform(
+    const items = (textContent.items as PdfTextItem[]).map((item) => {
+      const transform = pdfjs.Util.transform(
         viewport.transform,
-        item.transform
+        item.transform,
       );
+
       return {
-        str: item.str,
+        str: item.str ?? "",
         x: transform[4],
         y: transform[5],
         width: item.width,
@@ -39,7 +64,9 @@ export const extractTextItems = async (file: File): Promise<any[]> => {
   return textItems;
 };
 
-export const groupTextItemsIntoLines = (textItems: any[]): string[] => {
+export const groupTextItemsIntoLines = (
+  textItems: PositionedTextItem[],
+): string[] => {
   textItems.sort((a, b) => {
     if (Math.abs(a.y - b.y) < 5) return a.x - b.x;
     return b.y - a.y;
@@ -62,5 +89,6 @@ export const groupTextItemsIntoLines = (textItems: any[]): string[] => {
   }
 
   if (currentLine) lines.push(currentLine.trim());
+
   return lines;
 };

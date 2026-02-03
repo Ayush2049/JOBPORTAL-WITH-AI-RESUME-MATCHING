@@ -1,4 +1,4 @@
-import { extractTextItems, groupTextItemsIntoLines } from "./textProcessing";
+import { extractTextItems } from "./textProcessing";
 import { ResumeData } from "@/types";
 import {
   parseEducationSection,
@@ -60,7 +60,7 @@ export const parseResume = async (file: File): Promise<ResumeData> => {
 };
 
 const groupLinesIntoSections = (
-  lines: string[]
+  lines: string[],
 ): { [key: string]: string[] } => {
   const sections: { [key: string]: string[] } = {};
   let currentSection = "PROFILE";
@@ -162,7 +162,7 @@ const extractDataFromSections = (sections: {
 
     // Extract Location
     const locationMatch = profileText.match(
-      /([A-Z][a-zA-Z\s]+(?:,|\-)\s?[A-Z][a-zA-Z\s]+(?:,?\s?\w{2,})?)/
+      /([A-Z][a-zA-Z\s]+(?:,|\-)\s?[A-Z][a-zA-Z\s]+(?:,?\s?\w{2,})?)/,
     );
     if (locationMatch) resumeData.profile.location = locationMatch[0];
   }
@@ -180,7 +180,7 @@ const extractDataFromSections = (sections: {
     if (sections[sectionKey] && sections[sectionKey].length > 0) {
       console.log(
         `Processing skills from section: ${sectionKey}`,
-        sections[sectionKey]
+        sections[sectionKey],
       );
       resumeData.skills = parseSkillsSection(sections[sectionKey]);
       break;
@@ -198,12 +198,12 @@ const extractDataFromSections = (sections: {
             line.toLowerCase().includes("skill") ||
             line.toLowerCase().includes("technology") ||
             line.toLowerCase().includes("programming") ||
-            line.toLowerCase().includes("framework")
+            line.toLowerCase().includes("framework"),
         )
       ) {
         console.log(
           `Found skills in fallback section: ${sectionKey}`,
-          sectionContent
+          sectionContent,
         );
         resumeData.skills = parseSkillsSection(sectionContent);
         break;

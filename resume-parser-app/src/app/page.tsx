@@ -3,12 +3,11 @@
 import { useState } from "react";
 import FileUpload from "@/components/FileUpload";
 import ExtractionResults from "@/components/ExtractionResults";
-import { ResumeData } from "@/types";
-
+import { ResumeData, MatchResult } from "@/types";
 export default function Home() {
   const [extractedData, setExtractedData] = useState<ResumeData | null>(null);
   const [loading, setLoading] = useState(false);
-  const [matchResult, setMatchResult] = useState<any>(null);
+  const [matchResult, setMatchResult] = useState<MatchResult | null>(null);
 
   const handleFileUpload = async (file: File) => {
     setLoading(true);
@@ -110,7 +109,7 @@ export default function Home() {
                       >
                         {skill}
                       </span>
-                    )
+                    ),
                   )}
                 </div>
               </div>
@@ -132,7 +131,7 @@ export default function Home() {
                             >
                               {skill}
                             </span>
-                          )
+                          ),
                         )}
                       </div>
                     </div>

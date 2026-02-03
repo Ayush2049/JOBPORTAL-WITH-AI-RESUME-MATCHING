@@ -1,9 +1,13 @@
 // ------------------------
 // Education Section Parser
 // ------------------------
-export const parseEducationSection = (lines: string[]): any[] => {
-  const education: any[] = [];
-  let currentEdu: any = {};
+import { ResumeData } from "@/types";
+
+export const parseEducationSection = (
+  lines: string[],
+): ResumeData["education"] => {
+  const education: ResumeData["education"] = [];
+  let currentEdu: ResumeData["education"][number] = {};
 
   const educationPatterns = [
     /university|college|institute|school|academy/i,
@@ -46,9 +50,13 @@ export const parseEducationSection = (lines: string[]): any[] => {
 // ------------------------
 // Experience Section Parser
 // ------------------------
-export const parseExperienceSection = (lines: string[]): any[] => {
-  const experience: any[] = [];
-  let currentExp: any = {};
+export const parseExperienceSection = (
+  lines: string[],
+): ResumeData["experience"] => {
+  const experience: ResumeData["experience"] = [];
+
+  let currentExp: ResumeData["experience"][number] = {};
+
   let descriptions: string[] = [];
 
   for (const line of lines) {
@@ -76,8 +84,8 @@ export const parseExperienceSection = (lines: string[]): any[] => {
     } else if (line.startsWith("•")) {
       descriptions.push(line.replace(/^•/, "").trim());
     } else if (line.trim().length > 0) {
-      if (!currentExp.notes) currentExp.notes = [];
-      currentExp.notes.push(line);
+      if (!currentExp.descriptions) currentExp.descriptions = [];
+      currentExp.descriptions.push(line);
     }
   }
 
@@ -139,7 +147,7 @@ export const parseSkillsSection = (lines: string[]): string[] => {
     // Add skills (minimal filtering to match the working test)
     const validSkills = lineSkills.filter(
       (skill) =>
-        skill.length > 0 && skill.length < 50 && !skill.match(/^[•\-:\s]+$/)
+        skill.length > 0 && skill.length < 50 && !skill.match(/^[•\-:\s]+$/),
     );
 
     skills.push(...validSkills);

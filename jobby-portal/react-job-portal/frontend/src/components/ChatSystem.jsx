@@ -1,7 +1,7 @@
 // components/ChatSystem.jsx
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
-
+import "./css/ChatSystem.css";
 const ChatSystem = ({
   currentUserId,
   otherUserId,
@@ -42,7 +42,7 @@ const ChatSystem = ({
       const response = await axios.post(
         `http://localhost:5000/api/chat/conversation`,
         { receiverId: otherUserId },
-        { withCredentials: true }
+        { withCredentials: true },
       );
 
       console.log("Conversation data:", response.data);
@@ -70,7 +70,7 @@ const ChatSystem = ({
         `http://localhost:5000/api/chat/messages/${convId}`,
         {
           withCredentials: true,
-        }
+        },
       );
 
       console.log("Fetched messages:", response.data);
@@ -151,7 +151,7 @@ const ChatSystem = ({
         messageData,
         {
           withCredentials: true,
-        }
+        },
       );
 
       console.log("Message sent successfully:", response.data);
@@ -176,7 +176,7 @@ const ChatSystem = ({
       alert(
         `Failed to send message: ${
           error.response?.data?.message || error.message
-        }`
+        }`,
       );
     } finally {
       setSending(false);
@@ -191,7 +191,7 @@ const ChatSystem = ({
       await axios.post(
         `http://localhost:5000/api/chat/conversations/${convId}/mark-read`,
         {},
-        { withCredentials: true }
+        { withCredentials: true },
       );
       console.log("Conversation marked as read");
     } catch (error) {
