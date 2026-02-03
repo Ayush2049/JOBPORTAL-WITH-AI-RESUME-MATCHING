@@ -46,6 +46,10 @@ app.use(
     tempFileDir: "/tmp/",
   })
 );
+// Health check (root route)
+app.get("/", (req, res) => {
+  res.status(200).send("Backend is running 🚀");
+});
 
 // Routers
 app.use("/api/v1/user", userRouter);
