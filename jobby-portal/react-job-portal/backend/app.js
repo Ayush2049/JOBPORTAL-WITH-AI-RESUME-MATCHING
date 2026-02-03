@@ -13,15 +13,28 @@ import resumeRoutes from "./routes/resumeRoutes.js";
 import chatRoutes from "./routes/chatRoutes.js";
 
 const app = express();
-config({ path: "./config/config.env" });
+config();
+
+
+const allowedOrigins = [
+  process.env.FRONTEND_URL,
+  process.env.RESUME_PARSER_URL,
+];
 
 app.use(
   cors({
-    origin: [process.env.FRONTEND_URL],
-    methods: ["GET", "POST", "DELETE", "PUT"],
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE"],
   })
 );
+
 
 app.use(cookieParser());
 app.use(express.json());
