@@ -55,7 +55,7 @@ const Navbar = () => {
           {/* ✅ New Resume Parser Button */}
           <li>
             <a
-              href="http://localhost:3000/"
+              href={import.meta.env.VITE_RESUME_PARSER_URL}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setShow(false)}
