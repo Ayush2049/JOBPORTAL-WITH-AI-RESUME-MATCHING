@@ -4,6 +4,9 @@ import { useState } from "react";
 import FileUpload from "@/components/FileUpload";
 import ExtractionResults from "@/components/ExtractionResults";
 import { ResumeData, MatchResult } from "@/types";
+const JOB_PORTAL_FRONTEND =
+  process.env.NEXT_PUBLIC_JOB_PORTAL_URL || "http://localhost:5173";
+
 export default function Home() {
   const [extractedData, setExtractedData] = useState<ResumeData | null>(null);
   const [loading, setLoading] = useState(false);
@@ -58,7 +61,8 @@ export default function Home() {
       });
 
       // Update the URL to match your React Job Portal URL
-      const jobPortalUrl = `http://localhost:5173/matched-jobs?${queryParams}`;
+      const jobPortalUrl = `${JOB_PORTAL_FRONTEND}/matched-jobs?${queryParams}`;
+
       console.log("Redirecting to:", jobPortalUrl);
 
       // Try opening in new tab first
